@@ -30,11 +30,11 @@ public class Server implements IObservable {
     public void notifyall() {
         String serializedClientData = "";
         try {
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ObjectOutputStream os = new ObjectOutputStream(bos);
-            os.writeObject(clientData);
-            serializedClientData = Base64.getEncoder().encodeToString(bos.toByteArray());
-            os.close();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream outputStream = new ObjectOutputStream(byteArrayOutputStream);
+            outputStream.writeObject(clientData);
+            serializedClientData = Base64.getEncoder().encodeToString(byteArrayOutputStream.toByteArray());
+            outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
