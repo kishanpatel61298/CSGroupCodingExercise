@@ -14,7 +14,6 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        InputValidator inputValidator = new InputValidator();
         ClientData clientData;
 
         boolean hasError = false;
@@ -29,15 +28,15 @@ public class Main {
             }
             System.out.println("Enter Email: ");
             email = scanner.nextLine();
-            emailValidate = inputValidator.emailValidator(email);
+            emailValidate = InputValidator.emailValidator(email);
 
             System.out.println("Enter Name: ");
             name = scanner.nextLine();
-            nameValidate = inputValidator.nameValidator(name);
+            nameValidate = InputValidator.nameValidator(name);
 
         }while (hasError = !(emailValidate && nameValidate));
 
-        name = inputValidator.nameTransformer(name);
+        name = InputValidator.nameTransformer(name);
         clientData = new ClientData(name, email);
 
         IObservable server = new Server(clientData);
