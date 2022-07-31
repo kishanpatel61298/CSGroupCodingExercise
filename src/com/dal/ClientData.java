@@ -3,8 +3,8 @@ package com.dal;
 import java.io.Serializable;
 
 public class ClientData implements Serializable {
-    String name;
-    String email;
+    private String name;
+    private String email;
 
     public ClientData(String name, String email) {
         this.name = name;
